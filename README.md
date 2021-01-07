@@ -49,7 +49,11 @@ $ kafka-server-start /usr/local/etc/kafka/server.properties
 
 ---
 
-然后按照先后顺序执行如下两个类的 Main 方法：
+## 3. Provider 与 Consumer 的简单使用案例
+
+> 见 simpleSample 模块。
+
+按照先后顺序执行如下两个类的 Main 方法：
 
 1. KafkaConsumerSample
 2. KafkaProducerSample
@@ -68,3 +72,19 @@ offset = 7, key = SpongecaptainKey7, value = SpongecaptainValue7
 offset = 8, key = SpongecaptainKey8, value = SpongecaptainValue8 
 offset = 9, key = SpongecaptainKey9, value = SpongecaptainValue9 
 ```
+
+其余模块的运行机制都类似，下面就不再赘述。
+
+## 4. Callback回调机制
+
+> 见 callback 模块。
+
+
+## 5. 拦截器机制
+
+> 见 interceptor 模块。
+
+## 6. 序列化与反序列化
+
+> 见 serial 模块。
+

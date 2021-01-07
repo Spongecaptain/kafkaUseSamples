@@ -1,8 +1,6 @@
-package cool.spongecaptain.producer;
+package cool.spongecaptain.cllback.producer;
 
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
 
@@ -34,7 +32,12 @@ public class KafkaProducerSample {
 
         for(int i = 0; i < 10; i++) {
             //Producer#send 方法用于异步发送消息，这里的每一个消息都为键值对，并存放于 my-topic 主题下
-            producer.send(new ProducerRecord<>("myTopic", "SpongecaptainKey"+i, "SpongecaptainValue"+i));
+            producer.send(new ProducerRecord<>("topic-of-callback-sample", "SpongecaptainKey" + i, "SpongecaptainValue" + i), new Callback() {
+                @Override
+                public void onCompletion(RecordMetadata metadata, Exception exception) {
+                    System.out.println("消息发送成功 " + metadata) ;
+                }
+            });
         }
         //必须要记得关闭资源，当然，最好的方式一定是利用 try-with-resources 来自动完成这个过程
         producer.close();

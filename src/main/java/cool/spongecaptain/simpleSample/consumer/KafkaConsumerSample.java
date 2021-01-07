@@ -1,4 +1,4 @@
-package cool.spongecaptain.consumer;
+package cool.spongecaptain.simpleSample.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
