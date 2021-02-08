@@ -35,6 +35,21 @@ $ zkServer start
 $ kafka-server-start /usr/local/etc/kafka/server.properties
 ```
 
+**4.关闭**
+
+```bash
+$ brew services stop zookeepera
+$ brew services stop kafka
+```
+
+**5.查看运行状态**
+
+```bash
+$ brew services
+```
+
+上述命令能够查看所有由 brew 启动的服务的当前状态。
+
 ## 2. Kafka 数据的清空
 
 为了避免运行时由于累计消息问题出现结果不一致，可以事先将 Kafka topic 下的消息进行手动清空。
@@ -87,4 +102,3 @@ offset = 9, key = SpongecaptainKey9, value = SpongecaptainValue9
 ## 6. 序列化与反序列化
 
 > 见 serial 模块。
-
